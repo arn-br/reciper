@@ -1,13 +1,13 @@
 import strawberry
 from typing import List
 
-@strawberry.type
-class Ingredient:
+@strawberry.input
+class IngredientInput:
     name: str
     quantity: str
 
-@strawberry.input
-class IngredientInput:
+@strawberry.type
+class Ingredient:
     name: str
     quantity: str
 
