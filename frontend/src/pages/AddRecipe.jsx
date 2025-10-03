@@ -1,7 +1,7 @@
-// components/AddRecipe.jsx
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client/react';
 import { ADD_RECIPE } from '../graphql/mutations';
+import '../assets/styles.css';
 
 function AddRecipe() {
   const [title, setTitle] = useState('');

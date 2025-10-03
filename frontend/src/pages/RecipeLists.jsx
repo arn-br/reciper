@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client/react';
 import { GET_RECIPES } from '../graphql/queries';
+import '../assets/styles.css';
 
 function RecipeList() {
   const { loading, error, data } = useQuery(GET_RECIPES, {
