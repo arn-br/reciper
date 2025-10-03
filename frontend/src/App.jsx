@@ -37,7 +37,7 @@ export default App
 
 import { useState } from 'react'
 import './App.css'
-import RecipeList from './pages/RecipeLists';
+import RecipeLists from './pages/RecipeLists';
 import AddRecipe from './pages/AddRecipe';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
         
       </nav>
 
-      {page === 'list' && <RecipeList />}
+      {page === 'list' && <RecipeLists />}
       {page === 'add' && <AddRecipe />}
     </div>
   );

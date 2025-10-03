@@ -12,8 +12,9 @@ function AddRecipe() {
   const [addRecipe, { loading, error }] = useMutation(ADD_RECIPE);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await addRecipe({
+  e.preventDefault();
+  try {
+    const result = await addRecipe({
       variables: {
         title,
         category,
@@ -21,9 +22,12 @@ function AddRecipe() {
         ingredients,
       },
     });
-    // Optionally reset form or redirect
-  };
-
+    console.log('Recipe added:', result.data);
+  } catch (err) {
+    console.error('GraphQL mutation error:', err);
+    alert(`Error: ${err.message}`);
+  }
+};
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add Recipe</h2>
