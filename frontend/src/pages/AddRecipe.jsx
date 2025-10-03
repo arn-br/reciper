@@ -69,8 +69,10 @@ function AddRecipe() {
         </div>
       ))}
       <button type="button" onClick={() => setIngredients([...ingredients, { name: '', quantity: '' }])}>Add Ingredient</button>
-
-      <button type="submit" disabled={loading}>Submit</button>
+      <div style={{ marginTop: '10px' }}>
+        <button type="submit" disabled={loading}>Submit</button>
+      </div>
+      
       {error && <p>Error: {error.message}</p>}
     </form>
   );

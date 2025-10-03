@@ -46,8 +46,11 @@ function App() {
   return (
     <div>
       <nav>
-        <button onClick={() => setPage('list')}>View Recipes</button>
-        <button onClick={() => setPage('add')}>Add Recipe</button>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '12px' }}>
+          <button onClick={() => setPage('list')}>View Recipes</button>
+          <button onClick={() => setPage('add')}>Add Recipe</button>
+        </div>
+        
       </nav>
 
       {page === 'list' && <RecipeList />}
