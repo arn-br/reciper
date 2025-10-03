@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -33,3 +33,27 @@ function App() {
 }
 
 export default App
+*/
+
+import { useState } from 'react'
+import './App.css'
+import RecipeList from './pages/RecipeLists';
+import AddRecipe from './pages/AddRecipe';
+
+function App() {
+  const [page, setPage] = useState('list');
+
+  return (
+    <div>
+      <nav>
+        <button onClick={() => setPage('list')}>View Recipes</button>
+        <button onClick={() => setPage('add')}>Add Recipe</button>
+      </nav>
+
+      {page === 'list' && <RecipeList />}
+      {page === 'add' && <AddRecipe />}
+    </div>
+  );
+}
+
+export default App;

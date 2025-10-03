@@ -1,7 +1,7 @@
-import { gqpl } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-export const GET_RECIPES = gqpl`
-    query GetRecipes $category: String) {
+export const GET_RECIPES = gql`
+    query GetRecipes($category: String) {
     getRecipes(category: $category) {
       ...RecipeDetails
     }
