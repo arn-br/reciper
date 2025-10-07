@@ -3,6 +3,8 @@ from strawberry.fastapi import GraphQLRouter
 from schema import schema
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="../frontend/dist", html=True), name="static")
@@ -22,3 +24,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+@app.get("/{full_path:path}")
+async def serve_frontend(full_path: str = ""):
+    index_path = os.path.join("../frontend/dist", "index.html")
+    return FileResponse(index_path)
